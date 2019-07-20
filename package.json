@@ -1,0 +1,26 @@
+{
+  "name": "osoc-dashboard",
+  "version": "0.0.1",
+  "description": "A dashboard to manage your open Summer of code editions!",
+  "main": "index.js",
+  "repository": "https://github.com/opensummerofcode/dashboard",
+  "author": "Open Knowledge Belgium",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "next": "^9.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
