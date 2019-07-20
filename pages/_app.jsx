@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
+import GlobalStyle from '../src/styles';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -17,6 +18,7 @@ class MyApp extends App {
 
     return (
       <Container>
+        <GlobalStyle />
         <Head>
           <title key="title">Dashboard | open Summer of code 2019</title>
         </Head>
