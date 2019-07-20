@@ -18,7 +18,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>Dashboard | open Summer of code 2019</title>
+          <title key="title">Dashboard | open Summer of code 2019</title>
         </Head>
         <Component {...pageProps} />
       </Container>
