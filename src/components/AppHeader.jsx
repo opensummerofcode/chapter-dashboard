@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors, dimensions } from '../styles/constants';
 import logo from '../img/logo/logo-osoc-color.svg';
 
-const Nav = styled.nav`
+const Header = styled.header`
   width: 100v;
   height: 7rem;
   margin-bottom: 1rem;
@@ -35,14 +35,14 @@ const LogoContainer = styled.div`
 `;
 
 const AppHeader = () => (
-  <Nav>
+  <Header>
     <LogoContainer>
       <div>
         <img src={logo} alt="open Summer of code logo" />
       </div>
       <h1>open Summer of code</h1>
     </LogoContainer>
-  </Nav>
+  </Header>
 );
 
 export default AppHeader;
