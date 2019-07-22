@@ -5,6 +5,18 @@ import { colors } from './constants';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  @font-face {
+    font-family: 'Open Sans Regular';
+    src: url("...");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url("...");
+    font-display: swap;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -17,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fff;
     color: ${colors.black};
     font-size: 1.6rem;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   *, *:before, *:after {
@@ -25,6 +38,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     line-height: 1.6;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 `;
 
