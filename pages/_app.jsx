@@ -1,9 +1,9 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import AppHeader from '../src/components/AppHeader';
-import SideNav from '../src/components/SideNav';
-import GlobalStyle from '../src/styles';
-import EditionContext from '../src/context/edition-context';
+import AppHeader from '@/components/AppHeader';
+import SideNav from '@/components/SideNav';
+import GlobalStyle from '@/styles';
+import EditionContext from '@/context/edition-context';
 
 class MyApp extends App {
   state = {

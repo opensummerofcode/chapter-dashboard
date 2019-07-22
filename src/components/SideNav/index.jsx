@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import NavItem from './NavItem';
-import EditionContext from '../../context/edition-context';
+import EditionContext from '@/context/edition-context';
 
 const Nav = styled.nav``;
 
@@ -45,7 +45,7 @@ const SideNav = () => {
     }
   ];
 
-  const $navItems = navItems.map(i => <NavItem {...i} />);
+  const $navItems = navItems.map(i => <NavItem key={i.name} {...i} />);
   return (
     <Nav>
       <ul>{$navItems}</ul>

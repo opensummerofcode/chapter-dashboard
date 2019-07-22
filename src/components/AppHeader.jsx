@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { colors, dimensions } from '../styles/constants';
-import logo from '../img/logo/logo-osoc-color.svg';
+import { colors, dimensions } from '@/styles/constants';
+import logo from '@/img/logo/logo-osoc-color.svg';
 
 const Header = styled.header`
   width: 100v;
