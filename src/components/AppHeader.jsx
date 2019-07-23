@@ -5,7 +5,6 @@ import logo from '@/img/logo/logo-osoc-color.svg';
 const Header = styled.header`
   width: 100v;
   height: 7rem;
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

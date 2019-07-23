@@ -1,9 +1,14 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
+import styled from 'styled-components';
 import AppHeader from '@/components/AppHeader';
 import SideNav from '@/components/SideNav';
 import GlobalStyle from '@/styles';
 import EditionContext from '@/context/edition-context';
+
+const ContentContainer = styled.div`
+  display: flex;
+`;
 
 class MyApp extends App {
   state = {
@@ -40,8 +45,10 @@ class MyApp extends App {
         </Head>
         <EditionContext.Provider value={editionContext}>
           <AppHeader />
-          <SideNav />
-          <Component {...pageProps} />
+          <ContentContainer>
+            <SideNav />
+            <Component {...pageProps} />
+          </ContentContainer>
         </EditionContext.Provider>
       </Container>
     );

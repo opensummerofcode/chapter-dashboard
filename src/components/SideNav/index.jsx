@@ -1,14 +1,27 @@
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import NavItem from './NavItem';
+import { colors, dimensions } from '@/styles/constants';
 import EditionContext from '@/context/edition-context';
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  height: ${dimensions.sideNav.height};
+  width: 20vw;
+  background-color: ${colors.osocBlue};
+`;
+
+const NavList = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+`;
 
 const SideNav = () => {
+  const router = useRouter();
   const { selectedEdition } = useContext(EditionContext);
 
-  const baseURL = `/chapter/${selectedEdition}`;
+  const baseURL = `/${selectedEdition}`;
   const navItems = [
     {
       name: 'Overview',
@@ -45,10 +58,12 @@ const SideNav = () => {
     }
   ];
 
-  const $navItems = navItems.map(i => <NavItem key={i.name} {...i} />);
+  const $navItems = navItems.map(i => (
+    <NavItem key={i.name} active={router.pathname === i.href} {...i} />
+  ));
   return (
     <Nav>
-      <ul>{$navItems}</ul>
+      <NavList>{$navItems}</NavList>
     </Nav>
   );
 };

@@ -1,8 +1,8 @@
-export const transitionTimes = {};
+const transitionTimes = {};
 
-export const animations = {};
+const animations = {};
 
-export const colors = {
+const colors = {
   black: '#000',
   shadowGray: '#707070',
   beige: '#f7f7f0',
@@ -13,8 +13,14 @@ export const colors = {
   osocYellow: '#fcb70f'
 };
 
-export const dimensions = {
-  sideNav: {
-    width: '20vw'
-  }
+const dimensions = {};
+dimensions.appHeader = {
+  height: '7rem'
 };
+
+dimensions.sideNav = {
+  width: '20vw',
+  height: `calc(100vh - ${dimensions.appHeader.height})`
+};
+
+export { transitionTimes, animations, colors, dimensions };
