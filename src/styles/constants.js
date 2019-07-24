@@ -7,7 +7,7 @@ const colors = {
   shadowGray: '#707070',
   beige: '#f7f7f0',
   osocBlue: '#0a0839',
-  oscoBlueLighter: '#39367e',
+  osocBlueLighter: '#39367e',
   osocGreen: '#44dba4',
   osocRed: '#f14a3b',
   osocYellow: '#fcb70f'

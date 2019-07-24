@@ -58,7 +58,12 @@ const SideNav = () => {
   ];
 
   const $navItems = navItems.map(i => (
-    <NavItem key={i.name} edition={selectedEdition} active={router.pathname === i.page} {...i} />
+    <NavItem
+      key={i.name}
+      edition={selectedEdition}
+      active={router.asPath === `/${selectedEdition}/${i.page}`}
+      {...i}
+    />
   ));
   return (
     <Nav>

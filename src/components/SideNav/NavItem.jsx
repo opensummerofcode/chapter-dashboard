@@ -8,13 +8,23 @@ const StyledNavItem = styled.li`
   padding: 2rem 1rem;
   color: #fff;
   font-size: 1.8rem;
-  border-left: 0.5rem solid ${colors.osocGreen};
+  border-left: ${props =>
+    props.active ? `0.5rem solid ${colors.osocGreen}` : `0.5rem solid ${colors.osocBlue}`};
+  background-color: ${props => (props.active ? colors.osocBlueLighter : 'inherit')};
 `;
 
-const NavItem = ({ name, page, isExternal, edition }) => {
-  if (isExternal) return null;
+const NavItem = ({ name, page, isExternal, edition, active }) => {
+  if (isExternal) {
+    return (
+      <StyledNavItem>
+        <Link href={page}>
+          <a target="_blank">{name}</a>
+        </Link>
+      </StyledNavItem>
+    );
+  }
   return (
-    <StyledNavItem>
+    <StyledNavItem active={active}>
       <Link href={`/[edition]/${page}`} as={`/${edition}/${page}`}>
         <a>{name}</a>
       </Link>
@@ -23,12 +33,14 @@ const NavItem = ({ name, page, isExternal, edition }) => {
 };
 
 NavItem.defaultProps = {
-  isExternal: false
+  isExternal: false,
+  active: false
 };
 
 NavItem.propTypes = {
   name: PropTypes.string.isRequired,
   page: PropTypes.string.isRequired,
+  active: PropTypes.bool,
   isExternal: PropTypes.bool,
   edition: PropTypes.string.isRequired
 };
