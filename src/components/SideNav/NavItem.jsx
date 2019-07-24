@@ -11,11 +11,11 @@ const StyledNavItem = styled.li`
   border-left: 0.5rem solid ${colors.osocGreen};
 `;
 
-const NavItem = ({ name, href, isExternal }) => {
+const NavItem = ({ name, page, isExternal, edition }) => {
   if (isExternal) return null;
   return (
     <StyledNavItem>
-      <Link href={href}>
+      <Link href={`/[edition]/${page}`} as={`/${edition}/${page}`}>
         <a>{name}</a>
       </Link>
     </StyledNavItem>
@@ -28,8 +28,9 @@ NavItem.defaultProps = {
 
 NavItem.propTypes = {
   name: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  isExternal: PropTypes.bool
+  page: PropTypes.string.isRequired,
+  isExternal: PropTypes.bool,
+  edition: PropTypes.string.isRequired
 };
 
 export default NavItem;

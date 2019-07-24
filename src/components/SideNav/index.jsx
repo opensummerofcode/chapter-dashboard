@@ -21,45 +21,44 @@ const SideNav = () => {
   const router = useRouter();
   const { selectedEdition } = useContext(EditionContext);
 
-  const baseURL = `/${selectedEdition}`;
   const navItems = [
     {
       name: 'Overview',
-      href: `${baseURL}/overview`
+      page: `overview`
     },
     {
       name: 'Projects',
-      href: `${baseURL}/projects`
+      page: `projects`
     },
     {
       name: 'Coaches',
-      href: `${baseURL}/coaches`
+      page: `coaches`
     },
     {
       name: 'Students',
-      href: `${baseURL}/students`
+      page: 'students'
     },
     {
       name: 'Calendar & Location',
-      href: `${baseURL}/practical`
+      page: 'practical'
     },
     {
       name: 'Demo day',
-      href: `${baseURL}/demo-day`
+      page: 'demo-day'
     },
     {
       name: 'oSoc wiki',
-      href: `https://help.osoc.be/global`,
+      page: 'https://help.osoc.be/global',
       isExternal: true
     },
     {
       name: 'Settings',
-      href: `${baseURL}/settings`
+      page: 'settings'
     }
   ];
 
   const $navItems = navItems.map(i => (
-    <NavItem key={i.name} active={router.pathname === i.href} {...i} />
+    <NavItem key={i.name} edition={selectedEdition} active={router.pathname === i.page} {...i} />
   ));
   return (
     <Nav>

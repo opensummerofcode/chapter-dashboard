@@ -33,15 +33,17 @@ const LogoContainer = styled.div`
   }
 `;
 
-const AppHeader = () => (
-  <Header>
-    <LogoContainer>
-      <div>
-        <img src={logo} alt="open Summer of code logo" />
-      </div>
-      <h1>open Summer of code</h1>
-    </LogoContainer>
-  </Header>
-);
+const AppHeader = () => {
+  return (
+    <Header>
+      <LogoContainer>
+        <div>
+          <img src={logo} alt="open Summer of code logo" />
+        </div>
+        <h1>open Summer of code</h1>
+      </LogoContainer>
+    </Header>
+  );
+};
 
 export default AppHeader;
