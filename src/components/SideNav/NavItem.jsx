@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Icon } from '@/UI';
 import { colors } from '@/styles/constants';
 
 const StyledNavItem = styled.li`
@@ -11,14 +12,18 @@ const StyledNavItem = styled.li`
   border-left: ${props =>
     props.active ? `0.5rem solid ${colors.osocGreen}` : `0.5rem solid ${colors.osocBlue}`};
   background-color: ${props => (props.active ? colors.osocBlueLighter : 'inherit')};
+  transition: 0.4s all ease-in-out;
 `;
 
-const NavItem = ({ name, page, isExternal, edition, active }) => {
+const NavItem = ({ name, page, isExternal, edition, active, icon }) => {
   if (isExternal) {
     return (
       <StyledNavItem>
         <Link href={page}>
-          <a target="_blank">{name}</a>
+          <a target="_blank">
+            {icon && <Icon icon={icon} />}
+            {name}
+          </a>
         </Link>
       </StyledNavItem>
     );
@@ -26,7 +31,10 @@ const NavItem = ({ name, page, isExternal, edition, active }) => {
   return (
     <StyledNavItem active={active}>
       <Link href={`/[edition]/${page}`} as={`/${edition}/${page}`}>
-        <a>{name}</a>
+        <a>
+          {icon && <Icon icon={icon} />}
+          {name}
+        </a>
       </Link>
     </StyledNavItem>
   );
@@ -34,7 +42,8 @@ const NavItem = ({ name, page, isExternal, edition, active }) => {
 
 NavItem.defaultProps = {
   isExternal: false,
-  active: false
+  active: false,
+  icon: null
 };
 
 NavItem.propTypes = {
@@ -42,7 +51,8 @@ NavItem.propTypes = {
   page: PropTypes.string.isRequired,
   active: PropTypes.bool,
   isExternal: PropTypes.bool,
-  edition: PropTypes.string.isRequired
+  edition: PropTypes.string.isRequired,
+  icon: PropTypes.string
 };
 
 export default NavItem;

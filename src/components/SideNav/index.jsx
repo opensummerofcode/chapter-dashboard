@@ -24,36 +24,44 @@ const SideNav = () => {
   const navItems = [
     {
       name: 'Overview',
-      page: `overview`
+      page: 'overview',
+      icon: 'home'
     },
     {
       name: 'Projects',
-      page: `projects`
+      page: 'projects',
+      icon: 'projects'
     },
     {
       name: 'Coaches',
-      page: `coaches`
+      page: 'coaches',
+      icon: 'coaches'
     },
     {
       name: 'Students',
-      page: 'students'
+      page: 'students',
+      icon: 'students'
     },
     {
       name: 'Calendar & Location',
-      page: 'practical'
+      page: 'practical',
+      icon: 'calendar'
     },
     {
       name: 'Demo day',
-      page: 'demo-day'
+      page: 'demo-day',
+      icon: 'demo'
     },
     {
       name: 'oSoc wiki',
       page: 'https://help.osoc.be/global',
-      isExternal: true
+      isExternal: true,
+      icon: 'wiki'
     },
     {
       name: 'Settings',
-      page: 'settings'
+      page: 'settings',
+      icon: 'settings'
     }
   ];
 
@@ -65,6 +73,7 @@ const SideNav = () => {
       {...i}
     />
   ));
+
   return (
     <Nav>
       <NavList>{$navItems}</NavList>
