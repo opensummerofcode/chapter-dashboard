@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { colors, dimensions } from '../styles/constants';
-import logo from '../img/logo/logo-osoc-color.svg';
+import { colors, dimensions } from '@/styles/constants';
+import logo from '@/img/logo/logo-osoc-color.svg';
 
-const Nav = styled.nav`
+const Header = styled.header`
   width: 100v;
   height: 7rem;
-  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,15 +33,17 @@ const LogoContainer = styled.div`
   }
 `;
 
-const AppHeader = () => (
-  <Nav>
-    <LogoContainer>
-      <div>
-        <img src={logo} alt="open Summer of code logo" />
-      </div>
-      <h1>open Summer of code</h1>
-    </LogoContainer>
-  </Nav>
-);
+const AppHeader = () => {
+  return (
+    <Header>
+      <LogoContainer>
+        <div>
+          <img src={logo} alt="open Summer of code logo" />
+        </div>
+        <h1>open Summer of code</h1>
+      </LogoContainer>
+    </Header>
+  );
+};
 
 export default AppHeader;

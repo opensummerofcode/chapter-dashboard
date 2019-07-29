@@ -1,6 +1,6 @@
 {
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "import"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -56,6 +56,9 @@
   "settings": {
     "react": {
       "version": "16.8"
+    },
+    "import/resolver": {
+      "babel-module": {}
     }
   }
 }

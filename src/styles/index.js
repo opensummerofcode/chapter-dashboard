@@ -40,6 +40,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+
+  a, a:visited, a:active, a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

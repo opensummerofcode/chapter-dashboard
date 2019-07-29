@@ -1,13 +1,19 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import AppHeader from '../src/components/AppHeader';
-import SideNav from '../src/components/SideNav';
-import GlobalStyle from '../src/styles';
-import EditionContext from '../src/context/edition-context';
+import styled from 'styled-components';
+import AppHeader from '@/components/AppHeader';
+import SideNav from '@/components/SideNav';
+import GlobalStyle from '@/styles';
+import EditionContext from '@/context/edition-context';
+
+const ContentContainer = styled.div`
+  display: flex;
+`;
 
 class MyApp extends App {
   state = {
-    selectedEdition: '2019'
+    selectedEdition: '2019',
+    ready: false
   };
 
   static async getInitialProps({ Component, ctx }) {
@@ -20,11 +26,16 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  componentDidMount() {
+    this.setState({ ready: true });
+  }
+
   setSelectedEdition = edition => {
     this.setState({ selectedEdition: edition });
   };
 
   render() {
+    const { ready } = this.state;
     const { Component, pageProps } = this.props;
 
     const editionContext = {
@@ -38,11 +49,15 @@ class MyApp extends App {
         <Head>
           <title key="title">Dashboard | open Summer of code 2019</title>
         </Head>
-        <EditionContext.Provider value={editionContext}>
-          <AppHeader />
-          <SideNav />
-          <Component {...pageProps} />
-        </EditionContext.Provider>
+        {ready && (
+          <EditionContext.Provider value={editionContext}>
+            <AppHeader />
+            <ContentContainer>
+              <SideNav />
+              <Component {...pageProps} />
+            </ContentContainer>
+          </EditionContext.Provider>
+        )}
       </Container>
     );
   }
